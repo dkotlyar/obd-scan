@@ -207,16 +207,14 @@
 #define SJW_MIN     1       //! Synchro jump width
 #define SJW_MAX     4
     // ----------
-//#define NB_MOB       15
-#define NB_MOB       6 // edited for ATmegaxxM1 
+#define NB_MOB       15
 #define NB_DATA_MAX  8
 #define LAST_MOB_NB  (NB_MOB-1)
 #define NO_MOB       0xFF
     // ----------
-//typedef enum {
-//        MOB_0,  MOB_1, MOB_2,  MOB_3,  MOB_4,  MOB_5,  MOB_6, MOB_7,
-//        MOB_8,  MOB_9, MOB_10, MOB_11, MOB_12, MOB_13, MOB_14        } can_mob_t;
-typedef enum {MOB_0,  MOB_1, MOB_2,  MOB_3,  MOB_4,  MOB_5} can_mob_t;// edited for ATmegaxxM1
+typedef enum {
+        MOB_0,  MOB_1, MOB_2,  MOB_3,  MOB_4,  MOB_5,  MOB_6, MOB_7,
+        MOB_8,  MOB_9, MOB_10, MOB_11, MOB_12, MOB_13, MOB_14        } can_mob_t;
     // ----------
 #define STATUS_CLEARED            0x00
     // ----------

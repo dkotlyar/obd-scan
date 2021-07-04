@@ -9,7 +9,9 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#define SETBIT(reg, bit, value)     {if (value) {reg |= (1<<(bit));} else {reg &= ~(1<<(bit));}}
+#define SETBIT(reg, bit, value)     {if (value) {SETBIT_1(reg, bit)} else {SETBIT_0(reg, bit)}}
+#define SETBIT_1(reg, bit)          {reg |= (1<<(bit));}
+#define SETBIT_0(reg, bit)          {reg &= ~(1<<(bit));}
 #define GETBIT(reg, bit)            ((reg & (1<<bit))>0)
 #define MAX(a, b)                   ( (a)>(b) ? (a) : (b) )
 #define MIN(a, b)                   ( (a)<(b) ? (a) : (b) )
@@ -21,5 +23,7 @@
 #define LED_DDR	    DDRE
 #define LED_PORT	PORTE
 #define LED_Pn		4
+#define LED_ON()    {SETBIT_0(LED_PORT, LED_Pn);}
+#define LED_OFF()    {SETBIT_1(LED_PORT, LED_Pn);}
 
 #endif

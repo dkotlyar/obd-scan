@@ -106,8 +106,9 @@ typedef struct{
 // 7) ctrl  :  field ide to signal a extended frame .
 typedef  struct{
   uint8_t         handle; 
-  can_cmd_t  cmd; 
-  can_id_t   id;
+  can_cmd_t       cmd;
+  can_id_t        id;
+  can_id_t        idmsk;
   uint8_t         dlc;  
   uint8_t*        pt_data; 
   uint8_t         status; 

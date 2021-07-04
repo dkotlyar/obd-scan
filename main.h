@@ -18,7 +18,7 @@
 
 // PROJECT SECTION
 
-#define CAN_BAUDRATE   250        // in kBit
+#define CAN_BAUDRATE   1000        // in kBit
 
 #define LED_DDR	    DDRE
 #define LED_PORT	PORTE

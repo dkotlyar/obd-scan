@@ -1,22 +1,24 @@
 #include "main.h"
+#include "usart_lib.h"
+
+void init(void) {
+    usart0_init(9600);
+    usart0_print_sync("Hello");
+}
+
+void loop(void) {
+
+}
 
 int main(void) {
 	cli();
-	SETBIT(LED_DDR, LED_Pn, 1);
+	init();
 	sei();
 	
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "EndlessLoop"
 	while(1) {
-
-	    uint8_t a = 5;
-	
-		SETBIT(LED_DDR, LED_Pn, 1);
-		_delay_ms(100);
-		SETBIT(LED_DDR, LED_Pn, 0);
-		_delay_ms(500);
-		SETBIT(LED_DDR, LED_Pn, 1);
-		_delay_ms(100);
-		SETBIT(LED_DDR, LED_Pn, 0);
-		_delay_ms(3000);
-	
+	    loop();
 	}
+#pragma clang diagnostic pop
 }

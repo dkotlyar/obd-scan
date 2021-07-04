@@ -167,9 +167,13 @@ uint8_t can_cmd(st_cmd_t* cmd)
           break;
         //------------      
         case CMD_RX_MASKED:
-          if (cmd->ctrl.ide){ Can_set_ext_id(cmd->id.ext);}
-          else              { Can_set_std_id(cmd->id.std);}
-          u32_temp=~0; Can_set_ext_msk(u32_temp);
+          if (cmd->ctrl.ide){
+              Can_set_ext_id(cmd->id.ext);
+              Can_set_ext_msk(cmd->idmsk.ext);
+          } else {
+              Can_set_std_id(cmd->id.std);
+              Can_set_std_msk(cmd->idmsk.std);
+          }
           Can_set_dlc(cmd->dlc);
           Can_clear_rtrmsk();
           Can_set_idemsk();
@@ -177,9 +181,13 @@ uint8_t can_cmd(st_cmd_t* cmd)
           break;
         //------------      
         case CMD_RX_DATA_MASKED:
-          if (cmd->ctrl.ide){ Can_set_ext_id(cmd->id.ext);}
-          else              { Can_set_std_id(cmd->id.std);}
-          u32_temp=~0; Can_set_ext_msk(u32_temp);
+          if (cmd->ctrl.ide){
+            Can_set_ext_id(cmd->id.ext);
+            Can_set_ext_msk(cmd->idmsk.ext);
+          } else {
+            Can_set_std_id(cmd->id.std);
+            Can_set_std_msk(cmd->idmsk.std);
+          }
           Can_set_dlc(cmd->dlc);
           cmd->ctrl.rtr=0; Can_set_rtrmsk(); Can_clear_rtr();
           Can_set_idemsk();
@@ -187,9 +195,13 @@ uint8_t can_cmd(st_cmd_t* cmd)
           break;
         //------------      
         case CMD_RX_REMOTE_MASKED:
-          if (cmd->ctrl.ide){ Can_set_ext_id(cmd->id.ext);}
-          else              { Can_set_std_id(cmd->id.std);}
-          u32_temp=~0; Can_set_ext_msk(u32_temp);
+          if (cmd->ctrl.ide){
+            Can_set_ext_id(cmd->id.ext);
+            Can_set_ext_msk(cmd->idmsk.ext);
+          } else {
+            Can_set_std_id(cmd->id.std);
+            Can_set_std_msk(cmd->idmsk.std);
+          }
           Can_set_dlc(cmd->dlc);
           cmd->ctrl.rtr=1; Can_set_rtrmsk(); Can_set_rtr();
           Can_clear_rplv();
@@ -208,10 +220,14 @@ uint8_t can_cmd(st_cmd_t* cmd)
           break;
         //------------      
         case CMD_REPLY_MASKED:
-          if (cmd->ctrl.ide){ Can_set_ext_id(cmd->id.ext);}
-          else              { Can_set_std_id(cmd->id.std);}
+          if (cmd->ctrl.ide){
+            Can_set_ext_id(cmd->id.ext);
+            Can_set_ext_msk(cmd->idmsk.ext);
+          } else {
+            Can_set_std_id(cmd->id.std);
+            Can_set_std_msk(cmd->idmsk.std);
+          }
           for (cpt=0;cpt<cmd->dlc;cpt++) CANMSG = *(cmd->pt_data + cpt);
-          u32_temp=~0; Can_set_ext_msk(u32_temp);
           Can_set_dlc(cmd->dlc);
           cmd->ctrl.rtr=1; Can_set_rtrmsk(); Can_set_rtr();
           Can_set_rplv();

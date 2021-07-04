@@ -27,7 +27,7 @@ program_name := firmware
 # - main.h
 # - main.c
 # source_dirs := . lib
-source_dirs  := .
+source_dirs  := . canlib
 
 # MCU type
 # See -mmcu option: https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html
@@ -39,7 +39,7 @@ programmer := jtag1
 
 # Programmer port
 # See dmesg 
-port := /dev/ttyUSB1
+port := /dev/ttyUSB0
 
 
 ###############################################################################

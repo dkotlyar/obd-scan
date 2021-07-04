@@ -39,7 +39,7 @@ programmer := jtag1
 
 # Programmer port
 # See dmesg 
-port := /dev/ttyUSB0
+port := /dev/ttyUSB1
 
 
 ###############################################################################

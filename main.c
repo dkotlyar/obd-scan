@@ -1,5 +1,7 @@
 #include "main.h"
 #include "usart_lib.h"
+// Library from example "CAN ATmega32M1" http://www.hpinfotech.ro/cvavr-examples.html | https://forum.digikey.com/t/can-example-atmega32m1-stk600/13039
+// but original Atmel Library does not accessible by link http://www.atmel.com/tools/cansoftwarelibrary.aspx
 #include "canlib/can_lib.h"
 
 #define blink() {LED_ON();_delay_ms(50);LED_OFF();_delay_ms(50);}

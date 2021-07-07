@@ -9,6 +9,8 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
+uint32_t get_millis(void);
+
 #define SETBIT(reg, bit, value)     {if (value) {SETBIT_1(reg, bit)} else {SETBIT_0(reg, bit)}}
 #define SETBIT_1(reg, bit)          {reg |= (1<<(bit));}
 #define SETBIT_0(reg, bit)          {reg &= ~(1<<(bit));}
